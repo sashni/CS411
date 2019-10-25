@@ -5,7 +5,15 @@ var fetch = require('node-fetch');
 
 /* GET home page. */
 router.get('/', async function(req, res, next) {
+  res.render('index');
 
+});
+
+router.post('/', async function(req, res, next) {
+  const query = req.body.string;
+  const wolfram = await fetch(`http://api.wolframalpha.com/v2/query?input=${query}&appid=2WQXEL-ARVHU25KRT&format=image&output=json`);
+  const wolframJson = await wolfram.json();
+  console.log(wolframJson);
   const wolframTest = {
     "queryresult": {
       "success": true,
@@ -530,9 +538,15 @@ router.get('/', async function(req, res, next) {
       }
     }
   };
-  res.render('index', wolframTest);
 
-});
+  res.render('index',
+      {
+        success: wolframJson.queryresult.success.toString(),
+        error: wolframJson.queryresult.error.toString(),
+        numpods: wolframJson.queryresult.numpods.toString(),
+        id: wolframJson.queryresult.id.toString()
+      });
+})
 
 
 module.exports = router;
