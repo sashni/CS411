@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var fetch = require('node-fetch');
-
+var key = require('../keys.js');
 
 /* GET home page. */
 router.get('/', async function(req, res, next) {
@@ -11,7 +11,7 @@ router.get('/', async function(req, res, next) {
 
 router.post('/', async function(req, res, next) {
   const query = req.body.string;
-  const wolfram = await fetch(`http://api.wolframalpha.com/v2/query?input=${query}&appid=2WQXEL-ARVHU25KRT&format=image&output=json`);
+  const wolfram = await fetch(`http://api.wolframalpha.com/v2/query?input=${query}&appid=${key.WOLFRAM_ALPHA_API_KEY}&format=image&output=json`);
   const wolframJson = await wolfram.json();
   console.log(wolframJson);
   const wolframTest = {

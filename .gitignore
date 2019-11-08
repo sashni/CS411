@@ -1,2 +1,5 @@
 project/node_modules/
-project/.idea/
+/.idea/
+project/keys.js
+.gitignore
+
