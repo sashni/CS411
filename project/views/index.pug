@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h2 Math Wizard
+  p Goal: Take a picture of your math homework and we'll solve it for you!
+  hr
+  p Enter your query for Wolfram Alpha:
+  div
+    form(method="post")
+      input(type="text" name="string" class="input-text")
+      input(type="submit" value="Submit")
+  hr
+  p success: #{success}
+  p error: #{error}
+  p numpods: #{numpods}
+  p id: #{id}
