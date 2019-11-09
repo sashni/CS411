@@ -1,5 +1,5 @@
-1. 
-2.
+1. See UML.pdf 
+2. N/A
 3. 
 #### Happy path of a user:
 * User creates account OR logs into account
