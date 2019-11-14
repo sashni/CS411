@@ -1,7 +1,7 @@
-var express = require('express');
-var router = express.Router();
-var fetch = require('node-fetch');
-var key = require('../keys.js');
+const express = require('express');
+const router = express.Router();
+const fetch = require('node-fetch');
+const keys = require('../config');
 
 /* GET home page. */
 router.get('/', async function(req, res, next) {
@@ -11,9 +11,9 @@ router.get('/', async function(req, res, next) {
 
 router.post('/', async function(req, res, next) {
   const query = req.body.string;
-  const wolfram = await fetch(`http://api.wolframalpha.com/v2/query?input=${query}&appid=${key.WOLFRAM_ALPHA_API_KEY}&format=image&output=json`);
-  const wolframJson = await wolfram.json();
-  console.log(wolframJson);
+  //const wolfram = await fetch(`http://api.wolframalpha.com/v2/query?input=${query}&appid=${keys.WOLFRAM_ALPHA_API_KEY}&format=image&output=json`);
+  //const wolframJson = await wolfram.json();
+  //console.log(wolframJson);
   const wolframTest = {
     "queryresult": {
       "success": true,
@@ -541,12 +541,11 @@ router.post('/', async function(req, res, next) {
 
   res.render('index',
       {
-        success: wolframJson.queryresult.success.toString(),
-        error: wolframJson.queryresult.error.toString(),
-        numpods: wolframJson.queryresult.numpods.toString(),
-        id: wolframJson.queryresult.id.toString()
+        success: wolframTest.queryresult.success.toString(),
+        error: wolframTest.queryresult.error.toString(),
+        numpods: wolframTest.queryresult.numpods.toString(),
+        id: wolframTest.queryresult.id.toString()
       });
 })
-
 
 module.exports = router;

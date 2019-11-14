@@ -3,5 +3,30 @@ html
   head
     title= title
     link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css", integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T", crossorigin="anonymous")
-  body(class="text-center")
+  body
+    block navbar
+      nav(class="navbar navbar-expand-sm navbar-dark bg-dark")
+        ul(class="navbar-nav mr-auto")
+          li(class="nav-item text-white")
+          |
+          a(class="navbar-brand" href="") Math Wizard
+          li(class="nav-item active text-white")
+          |
+          a(class="nav-link" href="/") Home
+          li(class="nav-item active text-white")
+          |
+          a(class="nav-link" href="/profile") Profile
+          if !user
+            li(class="nav-item text-white")
+            |
+            a(class="nav-link" href="/auth/login") Login
+          if user
+            li(class="nav-item text-white")
+            |
+            a(class="nav-link" href="/auth/logout") Logout
     block content
+
+
+
+
+
