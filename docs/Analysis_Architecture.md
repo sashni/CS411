@@ -1,6 +1,12 @@
+<<<<<<< HEAD
+1. See UML.pdf 
+2. N/A
+3. 
+=======
 1. 
 2.
 3.
+>>>>>>> e9c2fa77a52af3ef40ce3bc1027357af270a1aba
 #### Happy path of a user:
 * User creates account OR logs into account
 * User uploads image of equation OR selects stored equation (jpg/png format)
