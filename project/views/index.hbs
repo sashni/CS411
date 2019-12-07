@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+
+<div class="ml-4">
+
+{{>navbar}}
+
+<div>
+    <p> Goal: Take a picture of your math homework and we'll solve it for you!</p>
+</div>
+
+<form action="/upload" method="post" id="mathpix-form" enctype="multipart/form-data">
+    <label for="mathpix-search"> Enter a JPEG or PNG file for Mathpix: </label> <br>
+    <input id="mathpix-search" type="file" accept="image/jpeg, image/png" required="required" name="photo"> <br>
+    <input type="submit" value="Upload"> <br>
+</form>
+
+<hr>
+
+<div id="mathpix-input"></div>
+
+<form method="post" id="wolfram-form">
+    <label for="wolfram-search"> Enter a query for Wolfram-Alpha: </label> <br>
+    <input id="wolfram-search" type="text" name="string" class="input-text" required="required"> <br>
+    <input type="submit" value="Submit"> <br>
+</form>
+
+<hr>
+
+<div id="wolfram-input"></div>
+
+<script src="/javascripts/wolfram.js"></script>
+
+</div>
+</body>
+
+</html>

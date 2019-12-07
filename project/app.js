@@ -1,6 +1,7 @@
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
+const hbs = require('hbs');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
@@ -18,13 +19,13 @@ const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
+app.set('view engine', 'hbs');
+hbs.registerPartials(path.join(__dirname, 'partials'));
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
 // setup cookies
 app.use(cookieSession({
@@ -41,9 +42,10 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/auth', authRouter);
 app.use('/profile', profileRouter);
+app.use(express.static(path.join(__dirname, './public')));
 
 // connect to mongodb
-mongoose.connect(keys.MONGODB_URI, () => {
+mongoose.connect(keys.MONGODB_URI,  { useNewUrlParser: true, useUnifiedTopology: true }, () => {
   console.log('connected to mongodb');
 });
 
@@ -62,6 +64,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
 
 module.exports = app;
