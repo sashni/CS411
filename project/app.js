@@ -42,7 +42,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/auth', authRouter);
 app.use('/profile', profileRouter);
-app.use(express.static(path.join(__dirname, './public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // connect to mongodb
 mongoose.connect(keys.MONGODB_URI,  { useNewUrlParser: true, useUnifiedTopology: true }, () => {

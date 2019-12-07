@@ -8,17 +8,19 @@ const wolframSearch = document.querySelector('#wolfram-search');
 const wolframInput = document.querySelector('#wolfram-input');
 
 
+
 mathpixForm.addEventListener('submit', async (event) => {
     event.preventDefault();
+    window.URL = window.URL || window.webkitURL;
     const photo = mathpixSearch.files[0];
     const formData = new FormData();
     formData.append("photo", photo);
     fetch('/upload/image', {method: "POST", body: formData}).then((response) => {
         response.json().then((data) => {
-            const imgPath = `./uploads/images/${data.filename}`;
-            console.log('imgPath', imgPath);
-            mathpixInput.innerHTML = `<img src="${imgPath}">`;
-            console.log('done', data);
+            const img = document.createElement("img");
+            img.src = window.URL.createObjectURL(photo);
+            img.onload = () => {window.URL.revokeObjectURL(this.src)};
+            mathpixInput.innerHTML = '<p>Your photo:</p>' +
         })
     });
 });
