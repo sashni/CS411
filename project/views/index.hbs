@@ -14,14 +14,12 @@
 
 {{>header}}
 
-<div>
-    <p> Take a picture of a math problem and we'll solve it for you!</p>
-</div>
+<h3><p> Take a picture of a math problem and we'll solve it for you!</p></h3>
 
 <form action="/upload/image" method="post" id="mathpix-form" enctype="multipart/form-data">
-    <label for="mathpix-search"> Enter a JPEG or PNG file: </label> <br>
-    <input id="mathpix-search" type="file" accept="image/jpeg, image/png" required="required" name="photo"> <br>
-    <input type="submit" value="Upload"> <br>
+    <label for="mathpix-search"> Enter a JPEG or PNG file: </label> <br><br>
+    <button><input id="mathpix-search" type="file" accept="image/jpeg, image/png" required="required" name="photo"></button> <br><br>
+    <button><input type="submit" value="Upload"></button><br>
 </form>
 
 <hr>
@@ -36,9 +34,8 @@
 
 <hr>
 
-<div id="wolfram-input"></div>
-
-<script src="/javascripts/wolfram.js"></script>
+<div id="wolfram-input">
+<script src="/javascripts/wolfram.js"></script></div>
 
 </div>
 

@@ -1,9 +1,10 @@
 body {
   color: #333333;
-  font-family: Tahoma;
-  max-width: 900px;
+  font-family: Optima;
+  max-width: 100%;
   margin: 0 auto;
   padding: 0 16px;
+  text-align: center;
 
   display: flex;
   flex-direction: column;
@@ -12,40 +13,63 @@ body {
 
 .main-content {
   flex-grow: 1;
+  background: #fef6f1;
 }
 
 footer {
+  background-color: #f6eee9;
   color: #888888;
-  border-top: 1px solid #eeeeee;
-  margin-top: 16px;
+  margin-top: 2px;
+  //border-top: 3px solid #eeeeee;
   padding: 16px 0;
 }
 
 header {
-  margin-top: 16px;
+  text-align: center;
   margin-bottom: 48px;
+  background: indianred;
 }
 
 header a {
-  color: #888888;
+  color: floralwhite;
+  font-size: 20px;
+  font-family: Chalkduster;
   margin-right: 16px;
-  text-decoration: none;
 }
 
 h1 {
   font-size: 64px;
   margin-bottom: 16px;
+  color: floralwhite;
+  text-align: center;
+  font-family: Chalkduster;
 }
 
-input {
-  border: 1px solid #cccccc;
+h3 {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  text-align: center;
+  font-size: 30px;
+  font-family: Optima;
+}
+
+#mathpix-form {
+  margin-left: 30%;
+  margin-right: 30%;
+  text-align: -webkit-left;
+  border: 10px solid #888888;
   padding: 8px;
+  font-size: 20px;
+}
+
+image {
+  height: 100px;
+  width: 80%;
 }
 
 button {
+  border: none;
   cursor: pointer;
-  border: 1px solid #888888;
-  background: #888888;
-  color: white;
-  padding: 8px;
+  background: #fef6f1;
+  color: maroon;
 }
